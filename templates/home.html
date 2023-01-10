@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+
+<div id="daftar-asmaulhusna">
+    <div class="container">
+        <div class="row">
+
+            {% for d in data %}
+            <div class="col-md-4 mb-3">
+
+                {% with card_data=d %}
+                {% include "card.html" %}
+                {% endwith %}
+
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+
+<div id="random-asmaulhusna">
+    <div class="container">
+        <div class="row">
+
+            {% with card_data=data %}
+            {% include "card.html" %}
+            {% endwith %}
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
