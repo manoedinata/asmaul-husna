@@ -5,10 +5,25 @@
 <div id="random-asmaulhusna">
     <div class="container">
         <div class="row">
+            <div class="col mb-3">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-dark" type="button" onclick="location.reload()">Refresh</button>
+                  </div>
+            </div>
+        </div>
 
-            {% with card_data=data %}
-            {% include "card.html" %}
-            {% endwith %}
+        <div class="row">
+
+            {% for d in data %}
+            <div class="col-md-12 mb-3">
+
+                {% with card_data=d %}
+                {% include "card.html" %}
+                {% endwith %}
+
+            </div>
+
+            {% endfor %}
 
         </div>
     </div>
