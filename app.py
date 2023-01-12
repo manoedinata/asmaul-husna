@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import requests
 
 app = Flask(__name__)
@@ -15,7 +15,11 @@ def home():
 
 @app.route("/random")
 def show_random():
-    req = session.get(URL + "/random", params={"result_num": defaultRandomResult})
+    resultNum = request.args.get("result_num")
+    if resultNum:
+        req = session.get(URL + "/random", params={"result_num": int(resultNum)})
+    else:
+        req = session.get(URL + "/random", params={"result_num": defaultRandomResult})
     data = req.json()
 
     return render_template("random.html", data=data)
